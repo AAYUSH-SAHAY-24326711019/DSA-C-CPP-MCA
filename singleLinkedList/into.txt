@@ -2,3 +2,10 @@ has important functions illustrating the implementation
 of the operations for single linked list,
 
 Thankyou
+
+
+==>Task 1 (implementation of Menu) <==
+Now adding the main menu in the program
+testing the menu
+we will add the functions one -by -one
+=========[Task completed]========
