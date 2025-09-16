@@ -9,3 +9,13 @@ Now adding the main menu in the program
 testing the menu
 we will add the functions one -by -one
 =========[Task completed]========
+
+=>Task 2 creating a single link list<=
+1. create the structure of node
+2. create the head pointer assign it as null.
+3. create the empty link list , 
+    by function c_list that takes the head pointer as argument
+    Since, an empty list has no node , the head ptr is null.
+4. calling the function in the main function menu
+5. The single link list was created .
+=========[Task completed]========

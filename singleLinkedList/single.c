@@ -1,6 +1,21 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+//----------[Task 2]-----------
+//1. Creating a node structure
+typedef struct node{
+    int info; 
+    struct node* next;
+}N;
+//2. Creating head pointer
+N *head =NULL;
+
+//3. creating c_list function
+void c_list(N **head){
+    *head=NULL;
+}
+//----------[Task 2]-----------
+
 int main(){
     int key = 1;
     int choice =0;
@@ -19,6 +34,7 @@ int main(){
 
             case 1 :
                 printf("\nCreating a single linklist\n");
+                c_list(&head); // passing head pointer
             break;
 
             case 2 :
