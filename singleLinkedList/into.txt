@@ -19,3 +19,13 @@ we will add the functions one -by -one
 4. calling the function in the main function menu
 5. The single link list was created .
 =========[Task completed]========
+
+=>Task 3 to insert the nodes<=
+1. Nodes can be inserted in 2 ways , from the start and from back.
+2. make it in menu. (done)
+3. making function to add in the end : ins_end()(done)
+4. to test it add the traverse function(done)
+5. testing the insert at end(done)
+6. adding function to add in the start : ins_beg()
+7. adding to menu and testing..(done)
+=========[Task completed]========
