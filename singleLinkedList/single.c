@@ -163,6 +163,19 @@ void del_after(N** head, int after){
     loc->next=ptr->next;//update the next field of loc with the next node address stored inside the ptr->next
     free(ptr);//free the memory of ptr
 }
+
+//6.4 deleting all the nodes of the linklist
+void del_ent(N** head){
+    N* ptr;//make a temporary pointer
+    while(*head!=NULL){//loop from the address in head to the last node of linklist
+        ptr=*head;//assign the address contained inside head to ptr
+        //print the value contained in the nodes.
+        printf("\n DELETED ITEM : [%2d]\n",ptr->info);
+        //assign the address of the next node to head
+        *head = (*head)->next; 
+        free(ptr);//and finally free the ptr
+    }
+}
 //--------------[Task 6]--------------
 
 
@@ -314,6 +327,12 @@ int main(){
                         del_after(&head,input);
                         printf("\n\tNew List :");
                         trav(head);
+                    break;
+
+                    case 4:
+                        printf("\nDeleting entire linklist\n");
+                        trav(head);
+                        del_ent(&head);
                     break;
 
                     default:

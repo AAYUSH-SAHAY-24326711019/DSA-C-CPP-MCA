@@ -85,3 +85,23 @@ Tested in both sorted as well as unsorted manner (done)
         User provide the node previous to node to be deleted 30
 
         New List :[10]-[20]-[30]-
+
+5. Deleting the entire linklist
+    adding to the menu . (done)
+    adding the function to delete all the nodes
+        del_ent() passing head pointer address
+    testing.
+        [10]-[20]-[30]-[40]-
+
+        Deleting entire linklist
+        [10]-[20]-[30]-[40]-
+        DELETED ITEM : [10]
+
+        DELETED ITEM : [20]
+
+        DELETED ITEM : [30]
+
+        DELETED ITEM : [40]
+
+        (done)
+=========[Task completed]========
