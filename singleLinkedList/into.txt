@@ -29,3 +29,12 @@ we will add the functions one -by -one
 6. adding function to add in the start : ins_beg()
 7. adding to menu and testing..(done)
 =========[Task completed]========
+
+=>Task 4 to insert after a particular number<=
+1. adding it in the menu (done)
+2.we will need to implement search and get location of desired node.(done)
+    now making the function of inserting after ins_aft().
+    we pass the head ptr, after specifice element and what item to be added.
+    (done)
+3. testing (done...)
+=========[Task completed]========

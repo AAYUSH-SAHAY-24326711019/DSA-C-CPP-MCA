@@ -70,13 +70,35 @@ void c_list(N **head){
 
 //---------[Task 3]---------
 
+
+//---------[Task 4]-----------
+//4.1 implement the search function : assuming list unsorted
+N * search1(N* head,int item){
+    while((head!=NULL)&& (head->info!=item)){
+        head=head->next;
+    }//it will exit loop when item found , returns location
+    return head;
+}
+
+//4.2 implement the add after function 
+void ins_aft(N* head,int after,int item){
+    N*ptr = (N*)malloc(sizeof(N));//make a node
+    N* loc=search1(head,after);//get location of specific node after searching
+    if(loc==NULL)//return from function if the list has that element absent.
+        return;
+    ptr->info=item;//take input in the value of new node
+    ptr->next=loc->next;//prove the loc->next in the ptr->next field
+    loc->next=ptr;//update the next field of loc , give it address of new node
+}
+//---------[Task 4]-----------
+
+
 int main(){
     int key = 1;
-    int choice =0,input=0;
-    int choice1=0;
+    int choice =0,choice1=0,input=0,after=0;
     while(key){
         printf("\n1. Press 1 to create a single linklist ");
-        printf("\n2. Press 2 to insert a node in single linklist (starting)");
+        printf("\n2. Press 2 to insert a node in single linklist");
         printf("\n3. Press 3 to traverse single linklist ");
         printf("\n4. Press 0 to exit program");
         printf("\nUser provide your choice =>");
@@ -97,7 +119,8 @@ int main(){
                 printf("\ninserting a node at start \n");
                 printf("\n\t1. Press 1 to insert from the end.");
                 printf("\n\t2. Press 2 to insert from the start.");
-                printf("\n\t3. Press 0 to go back");
+                printf("\n\t3. Press 3 to insert after a particular node.");
+                printf("\n\t4. Press 0 to go back");
                 printf("\n\tUser give input = ");
                 scanf("%d",&choice1);
                 switch(choice1){
@@ -116,6 +139,18 @@ int main(){
                         printf("\nUser provide input =");
                         scanf("%d",&input);
                         ins_beg(&head,input);
+                    break;
+
+                    case 3:
+                        printf("\nAdding node after specific node \n");
+                        printf("\n\tSee the list :");
+                        trav(head);
+                        printf("\nUser which node to add after =");
+                        scanf("%d",&after);
+                        printf("\nUser provide input =");
+                        scanf("%d",&input);
+                        ins_aft(head,after,input);
+                        
                     break;
 
                     default:
