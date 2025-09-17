@@ -92,15 +92,34 @@ void ins_aft(N* head,int after,int item){
 }
 //---------[Task 4]-----------
 
+//---------[Task 5]-----------
+//5.1 implementing searching in the sorted list
+N * search2(N* head,int item){
+    while(head!=NULL){//search until reaching the last node
+        if(head->info ==item)//if the head->info has element return head position
+            return head;
+        //it can be the element is less than head->info
+        //Since, all elements exist in increasing value manner,
+        else if(item<head->info)
+            return NULL;  //in that case nothing to return
+        else
+            head=head->next; //if not found then check the next node
+    } //exit from loop when last node is reached (node->next=NULL)
+    return NULL ;
+}
+
+//---------[Task 5]-----------
+
 
 int main(){
     int key = 1;
-    int choice =0,choice1=0,input=0,after=0;
+    int choice =0,choice1=0,input=0,after=0,choice2=0;
     while(key){
         printf("\n1. Press 1 to create a single linklist ");
         printf("\n2. Press 2 to insert a node in single linklist");
         printf("\n3. Press 3 to traverse single linklist ");
-        printf("\n4. Press 0 to exit program");
+        printf("\n4. Press 4 to search a node in single linklist ");
+        printf("\n5. Press 0 to exit program");
         printf("\nUser provide your choice =>");
         scanf("%d",&choice);
         switch(choice){
@@ -164,6 +183,40 @@ int main(){
             case 3 :
                 printf("\ntraversing a single linklist\n");
                 trav(head);
+            break;
+
+            case 4 :
+                printf("\nSearching node in single linklist\n");
+                printf("\n\t1. Press 1 to search if unsorted list.");
+                printf("\n\t2. Press 2 to search if sorted list.");
+                printf("\n\t3. Press 0 to go back");
+                printf("\n\tUser give input = ");
+                scanf("%d",&choice2);
+                switch(choice2){
+                    case 0:
+                    break;
+
+                    case 1:
+                        printf("\n\tsearching in unsorted list\n");
+                        printf("\nUser provide input =");
+                        scanf("%d",&input);
+                        N* temp=search1(head,input);
+                        printf("[%d],(address : %p)",temp->info,(void *)temp);
+                    break;
+
+                    case 2:
+                        printf("\nSearching in sorted list\n");
+                        printf("\nUser provide input =");
+                        scanf("%d",&input);
+                        N* temp1=search1(head,input);
+                        printf("[%d],(address : %p)",temp1->info,(void *)temp1);
+                        
+                    break;
+
+                    default:
+                        break;
+
+                }
             break;
             
             default:

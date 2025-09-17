@@ -38,3 +38,25 @@ we will add the functions one -by -one
     (done)
 3. testing (done...)
 =========[Task completed]========
+
+=>Task 5 : searching if list sorted.<=
+1. if our list is sorted , then we will save our time in searching
+    elements.
+2. Adding to the menu (done).
+3. implementing search2() (done)
+4. adding it to the menu and show the location value address and value (done)
+5. testing with unsorted values. list : [12]-[10]-[24]-[ 4]-
+
+        searching in unsorted list
+
+        User provide input =10
+        [10],(address : 007C1AC8)
+testing with sorted list
+
+traversing a single linklist
+[10]-[20]-[30]-[40]-[50]-
+User provide input =40
+[40],(address : 00C31AE8)
+
+Tested in both sorted as well as unsorted manner (done)
+=========[Task completed]========
