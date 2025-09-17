@@ -152,6 +152,17 @@ void del_end(N** head){
     }
 
 }
+//6.3 Deleting after a specific node
+void del_after(N** head, int after){
+    N* ptr , *loc;//make 2 temporary pointer.
+    //in loc , store the address of specific node (value inside after variable).
+    loc=search1(*head,after); //assuming list is unsorted.
+    if(loc==NULL)//if element in list is absent
+        return;
+    ptr=loc->next;//store the next field of loc in ptr
+    loc->next=ptr->next;//update the next field of loc with the next node address stored inside the ptr->next
+    free(ptr);//free the memory of ptr
+}
 //--------------[Task 6]--------------
 
 
@@ -270,9 +281,9 @@ int main(){
                 printf("\nDeleting node in single linklist\n");
                 printf("\n\t1. Press 1 to delete from beginning");
                 printf("\n\t2. Press 2 to delete from the end");
-                printf("\n\t3. Press 3 to delete entire list");
-                printf("\n\t3. Press 4 to delete after specific node");
-                printf("\n\t3. Press 0 to go back");
+                printf("\n\t3. Press 3 to delete after specific node");
+                printf("\n\t4. Press 4 to delete entire list");
+                printf("\n\t5. Press 0 to go back");
                 printf("\n\tUser give input = ");
                 scanf("%d",&choice3);
                 switch(choice3){
@@ -291,6 +302,16 @@ int main(){
                         printf("\nDeleting node from end of list\n");
                         trav(head);
                         del_end(&head);
+                        printf("\n\tNew List :");
+                        trav(head);
+                    break;
+
+                    case 3:
+                        printf("\nDeleting node after a specific node\n");
+                        trav(head);
+                        printf("\n\tUser provide the node previous to node to be deleted ");
+                        scanf("%d",&input);
+                        del_after(&head,input);
                         printf("\n\tNew List :");
                         trav(head);
                     break;

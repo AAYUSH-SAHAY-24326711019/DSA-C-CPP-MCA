@@ -76,3 +76,12 @@ Tested in both sorted as well as unsorted manner (done)
     Deleting node from end of list
         [10]-[20]-[30]-[40]-
         New List :[10]-[20]-[30]- (done)
+
+4. Deleting from after the specific node.
+    adding to the menu
+    testing
+    Deleting node after a specific node
+        [10]-[20]-[30]-[40]-
+        User provide the node previous to node to be deleted 30
+
+        New List :[10]-[20]-[30]-
