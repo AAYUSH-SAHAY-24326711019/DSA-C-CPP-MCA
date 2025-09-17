@@ -70,3 +70,9 @@ Tested in both sorted as well as unsorted manner (done)
         New List :[20]-
 
     (done)
+
+3. deletion from the end of the list del_end(), passing head pointer
+    adding to menu and testing
+    Deleting node from end of list
+        [10]-[20]-[30]-[40]-
+        New List :[10]-[20]-[30]- (done)

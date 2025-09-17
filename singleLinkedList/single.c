@@ -124,6 +124,34 @@ void del_beg(N **head){
         free(ptr);
     }
 }
+//6.2 Deleting from the end of the list
+void del_end(N** head){
+    N* ptr;//make a temporary node
+    N *loc;//make a pointer to store the location of last node
+    if(*head==NULL)//if list is empty, head is null, then return
+        return;
+    else if((*head)->next==NULL){//possibly be the 1st node in the list
+        ptr=*head;//store the address of head in ptr
+        *head=NULL;//set the head pointer to be null
+        free(ptr);//free the pointer
+    }
+    //else loop to the end of the list
+    else{
+        //provide loc pointer the address stored inside head (contains add of 1st node)
+        loc=*head;
+        //provide the ptr node the address in the next of 1st node
+        ptr=(*head)->next; //ptr holds address of 2nd node
+        while(ptr->next!=NULL){ // move until last node is reached
+            loc=ptr;
+            ptr=ptr->next;
+        } //exit from the loop when ptr is having address of last node
+        //and loc holds the address of the second last node.
+        
+        loc->next = NULL;//disconnect second last node and last node
+        free(ptr);//free the memory of the last node.
+    }
+
+}
 //--------------[Task 6]--------------
 
 
@@ -259,22 +287,24 @@ int main(){
                         trav(head);
                     break;
 
+                    case 2:
+                        printf("\nDeleting node from end of list\n");
+                        trav(head);
+                        del_end(&head);
+                        printf("\n\tNew List :");
+                        trav(head);
+                    break;
+
                     default:
                     break;
                     
 
                 }
             break;
-            
+
             default:
                 printf("\nuser give a valid input\n");
-            
-
         }
-
-
-
     }
-
     return 0;
 }
