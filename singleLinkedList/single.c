@@ -110,15 +110,34 @@ N * search2(N* head,int item){
 
 //---------[Task 5]-----------
 
+//--------------[Task 6]--------------
+//6.1 delete from the beginning
+void del_beg(N **head){
+    N* ptr;//make a node
+    if(head==NULL)//if list is empty then return
+        return;
+    else{
+        ptr=*head;//give address of head to new node (head holds add. of 1st node)
+        //assign the address of the next node i.e head->next in the head
+        *head=(*head)->next;
+        //free the node that contains the add
+        free(ptr);
+    }
+}
+//--------------[Task 6]--------------
+
+
+
 
 int main(){
     int key = 1;
-    int choice =0,choice1=0,input=0,after=0,choice2=0;
+    int choice =0,choice1=0,input=0,after=0,choice2=0,choice3=0;
     while(key){
         printf("\n1. Press 1 to create a single linklist ");
         printf("\n2. Press 2 to insert a node in single linklist");
         printf("\n3. Press 3 to traverse single linklist ");
         printf("\n4. Press 4 to search a node in single linklist ");
+        printf("\n5. Press 5 to initiate deletion in single linklist ");
         printf("\n5. Press 0 to exit program");
         printf("\nUser provide your choice =>");
         scanf("%d",&choice);
@@ -215,6 +234,34 @@ int main(){
 
                     default:
                         break;
+
+                }
+            break;
+
+            case 5:
+                printf("\nDeleting node in single linklist\n");
+                printf("\n\t1. Press 1 to delete from beginning");
+                printf("\n\t2. Press 2 to delete from the end");
+                printf("\n\t3. Press 3 to delete entire list");
+                printf("\n\t3. Press 4 to delete after specific node");
+                printf("\n\t3. Press 0 to go back");
+                printf("\n\tUser give input = ");
+                scanf("%d",&choice3);
+                switch(choice3){
+                    case 0:
+                    break;
+
+                    case 1:
+                        printf("\nDeleting node from begining\n");
+                        trav(head);
+                        del_beg(&head);
+                        printf("\n\tNew List :");
+                        trav(head);
+                    break;
+
+                    default:
+                    break;
+                    
 
                 }
             break;

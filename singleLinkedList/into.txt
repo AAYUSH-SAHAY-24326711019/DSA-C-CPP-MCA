@@ -60,3 +60,13 @@ User provide input =40
 
 Tested in both sorted as well as unsorted manner (done)
 =========[Task completed]========
+
+=>Task 6 To implement deletion operation in single linklist<=
+1. Adding in the menu of the program(done)
+2. deltion from begining : del_beg() needs the head pointer
+    adding in menu and testing
+    Deleting node from begining
+        [10]-[20]-
+        New List :[20]-
+
+    (done)
