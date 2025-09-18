@@ -1,6 +1,27 @@
 #include<stdio.h>
 #include<stdlib.h>
 
+//------[Task 2]------
+//representation of doubly linklist
+typedef struct node{
+    struct node *prev;
+    int info;
+    struct node *next;
+}N;
+
+N* head = NULL;
+N* tail = NULL;
+//------[Task 2]------
+
+//------[Task 3]------
+//creation of a doubly link list
+void create(N** head, N** tail){
+    *head = NULL;
+    *tail = NULL;
+    //when empty , head and tail pointers hold adress of no nodes.
+}
+//------[Task 3]------
+
 int main(){
     int key=1,choice1=0;
     while(key){
@@ -20,6 +41,7 @@ int main(){
 
             case 1:
                 printf("\n\t Created a Doubly Linked List\n");
+                create(&head,&tail);
             break;
 
             case 2:
