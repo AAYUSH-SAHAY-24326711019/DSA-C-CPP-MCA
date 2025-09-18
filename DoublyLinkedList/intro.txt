@@ -3,3 +3,14 @@
 =>task 1 making the menu<= (testing) (done)<=
 =>Task 2 representation of the doubly linklist.<= (done)
 =>Task 3 creation of an empty doubly link list<=(adding in menu) (testing) (done)
+=>Task 4 Traversal operation in the list can be done
+    in both forward as well as backward manner. (operation 3 in menu)
+    (adding in menu) (testing) (done)
+
+    implementing the functions (done)
+    We will also need to implement the add function in order to test it,
+
+=>Task 5 implementing the functions to insert.<=
+    adding in menu.
+    begin from the most simple : insert at beginning (done)
+    adding in menu. (testing) (done)
