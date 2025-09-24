@@ -14,3 +14,8 @@
     adding in menu.
     begin from the most simple : insert at beginning (done)
     adding in menu. (testing) (done)
+
+=>Task 6 insertion from the end<=
+    made func. ins_end done
+    adding in menu done
+    testing (done)

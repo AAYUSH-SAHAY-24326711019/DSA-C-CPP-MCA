@@ -60,6 +60,33 @@ void ins_beg(N** head, N** tail,int item){
 
 //------[Task 5]------
 
+//------[Task 6]-------
+//Insertion at the last
+void ins_end(N** head, N** tail,int item){
+    N *ptr=(N*)malloc(sizeof(N)); //make a new node
+    ptr->info=item;//take input to the info part
+    //if head and tail are null : means its the 1st and last node
+    if(*head==NULL){
+        //make the prev and next filed of new node(ptr)as null
+        ptr->prev=ptr->next=NULL;
+        //give the address of the new node(ptr) to head and tail
+        *head=*tail=ptr;
+    }else{
+        //list has nodes , adding at the end of list , make next node null
+        ptr->next=NULL;
+        //tail holds the address of last node , give in prev of ptr
+        ptr->prev=*tail;
+        // Since tail contains address of last node , 
+        //update the next field of the last node , give it address of ptr
+        (*tail)->next=ptr;
+        //now give the address of the newly created node to the tail.
+        *tail = ptr;
+    }
+}
+
+//------[Task 6]-------
+
+
 int main(){
     int key=1,choice1=0,choice2=0,choice3=0,input=0;
     while(key){
@@ -85,6 +112,7 @@ int main(){
             case 2:
                 printf("\n\t inserting nodes in Doubly Linked List\n");
                 printf("\n\t1. press 1 for insertion at begining");
+                printf("\n\t2. press 2 for insertion at the end of list");
                 printf("\n\t3. PRESS 0 TO GO BACK TO MENU");
                 printf("\n\t User give input =");
                 scanf("%d",&choice3);
@@ -98,7 +126,15 @@ int main(){
                         scanf("%d",&input);
                         ins_beg(&head,&tail,input);
                         printf("\n\t Value inserted \n");
-                        break;
+                    break;
+
+                    case 2:
+                        printf("\n\t Inserting at end of the list\n");
+                        printf("\n\t User provide input =");
+                        scanf("%d",&input);
+                        ins_end(&head,&tail,input);
+                        printf("\n\t Value inserted \n");
+                    break;
 
                     default:
                         break;
