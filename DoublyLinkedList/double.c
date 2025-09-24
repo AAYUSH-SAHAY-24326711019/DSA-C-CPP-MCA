@@ -156,6 +156,49 @@ void ins_aft(N** head, N** tail, int after, int item){
 
 //------[Task 7]-------
 
+//------[Task 8]-------
+//Adding function to insert a node before a specific node
+
+void ins_bef(N **head,N **tail, int before, int item){
+    //make a location pointer
+    N *loc;
+    // search and store the address of the desired node
+    loc = search1(*head,before); //forward search
+    if(loc==NULL){ //maybe user input be not inside list
+        return; //control exits the body of if statement
+    }
+    //make the node
+    N* ptr = (N*)malloc(sizeof(N));
+    //take input in info field
+    ptr->info=item;
+    //case 1 : may be the 1st node , we try to add before the 1st node.
+    if(loc->prev==NULL){
+        //make the prev field of the ptr as null
+        ptr->prev=NULL;
+        //assign the address contained inside head (of 1st node)
+        //to the next field of the newly created node(ptr)
+        ptr->next=*head;
+        // update the prev field of node inside loc with address of ptr
+        loc->prev=ptr;
+        //Since making it the 1st node , we will provide the address
+        //of ptr to the head pointer
+        *head=ptr;
+    }//else we are adding before any node other than the 1st node
+    else{
+        //desired node prev value is given to the prev field of ptr
+        ptr->prev=loc->prev;
+        //make the loc address node the next of ptr
+        ptr->next=loc;
+        //update the next field of the node that lies prev. to node whose address
+        //is contained inside the loc with the address of ptr
+        (loc->prev)->next=ptr;
+        //the prev field of the current node whose address inside in loc
+        //is given the address of ptr
+        loc->prev=ptr;
+    }
+}
+//------[Task 8]-------
+
 
 int main(){
     int key=1,choice1=0,choice2=0,choice3=0,input=0,input1=0;
@@ -185,7 +228,8 @@ int main(){
                 printf("\n\t1. press 1 for insertion at begining");
                 printf("\n\t2. press 2 for insertion at the end of list");
                 printf("\n\t3. press 3 for insertion after a node");
-                printf("\n\t3. PRESS 0 TO GO BACK TO MENU");
+                printf("\n\t4. press 4 for insertion before a node");
+                printf("\n\t5. PRESS 0 TO GO BACK TO MENU");
                 printf("\n\t User give input =");
                 scanf("%d",&choice3);
                 switch(choice3){
@@ -209,13 +253,25 @@ int main(){
                     break;
 
                     case 3:
-                        trav1(head); // 1st display the list to user
                         printf("\n\t Inserting after a node\n");
+                        trav1(head); // 1st display the list to user
                         printf("\n\t User specify node (input-value) =");
                         scanf("%d",&input1);
                         printf("\n\t User provide input =");
                         scanf("%d",&input);
                         ins_aft(&head,&tail,input1,input);
+                        printf("\n\t Value inserted \n");
+                        trav1(head);//show the list after insertion
+                    break;
+
+                    case 4:
+                        printf("\n\t Inserting before a node\n");
+                        trav1(head); // 1st display the list to user
+                        printf("\n\t User specify node (input-value) =");
+                        scanf("%d",&input1);
+                        printf("\n\t User provide input =");
+                        scanf("%d",&input);
+                        ins_bef(&head,&tail,input1,input);
                         printf("\n\t Value inserted \n");
                         trav1(head);//show the list after insertion
                     break;

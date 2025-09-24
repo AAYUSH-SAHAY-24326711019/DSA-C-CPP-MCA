@@ -25,7 +25,12 @@
     searching is of two types : forward and backward searching
     add in the menu (scheduled later.)
 
-currently inserting after a node .
-add fun. ins_after done
-add in menu done
-testing done
+    currently inserting after a node .
+    add fun. ins_after done
+    add in menu done
+    testing done
+
+=>Task 8 inserting before a given element
+  adding in menu done
+  adding the function done
+  testing done
