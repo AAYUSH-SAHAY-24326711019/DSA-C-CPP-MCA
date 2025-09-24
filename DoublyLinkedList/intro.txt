@@ -19,3 +19,13 @@
     made func. ins_end done
     adding in menu done
     testing (done)
+
+=>Task 7 insertion after a given element
+ =>subtask 1 need to implement searching<=
+    searching is of two types : forward and backward searching
+    add in the menu (scheduled later.)
+
+currently inserting after a node .
+add fun. ins_after done
+add in menu done
+testing done

@@ -86,15 +86,86 @@ void ins_end(N** head, N** tail,int item){
 
 //------[Task 6]-------
 
+//------[Task 7]-------
+//Inserting after a given element
+
+//need to implement forward searching : needs head pointer
+N *search1(N*head,int item){
+    //while head not null : means until not reached the last node
+    while(head!=NULL){
+        //check each node info part comparing to item provided
+        if(head->info==item){
+            //item found then return the address of node stored in head
+            return head;
+        }
+        //else part keep moving to next node in forward direction
+        head=head->next;
+    }//out of loop means item was not found
+    return NULL;
+}
+
+//need to implement Backward Searching needs tail pointer
+N *search2(N*tail,int item){
+    // while tail is not null : means while searching the 1st node not reached
+    while(tail!=NULL){
+        //check the info field of all the nodes whose address contain inside tail
+        if(tail->info==item){
+            //return the address of node contained inside tail
+            return tail;
+        }//else move to preveous node current node
+        tail=tail->prev;
+    }//out of the loop means value was not inside list
+    return NULL;
+}
+
+//adding ins_aft function
+void ins_aft(N** head, N** tail, int after, int item){
+    N* loc;//make a location pointer
+    //assuming search from beginning and last have same time complexity
+    loc=search1(*head,after); //since search from head is forward search
+    //search and store the location.
+    if(loc==NULL){
+        //means the value provided by user not the part of list
+        return ;
+    }//control exits the else block
+    N *ptr = (N*)malloc(sizeof(N));//make a node
+    ptr->info=item;//take input to the info field
+    //Now Case 1 : Assuming : to add after last node
+    if(loc->next==NULL){
+        ptr->next=NULL; //make the ptr last node. Since next field is null
+        //update the next field of the last node (addr contained inside loc)
+        loc->next=ptr;
+        //update the prev field of the ptr with the address inside tail
+        //since tail contains address of last node
+        ptr->prev=*tail;
+        //give the address of ptr to the tail
+        *tail=ptr;
+    }
+    //Case 2 : Any node other than the last node
+    else{
+        //give the address of loc in the prev field of ptr
+        ptr->prev=loc;
+        //assign the next field of the loc to next field of ptr
+        ptr->next=loc->next;
+        //update the prev. field of the next node of node contained inside the loc with ptr
+        (loc->next)->prev=ptr;
+        //make the ptr next field of the node whose address inside loc
+        loc->next=ptr;
+    }
+}
+
+//------[Task 7]-------
+
 
 int main(){
-    int key=1,choice1=0,choice2=0,choice3=0,input=0;
+    int key=1,choice1=0,choice2=0,choice3=0,input=0,input1=0;
     while(key){
         printf("\nUser follow the instructions.");
         printf("\n1. Press 1 to create a Doubly LinkedList");
         printf("\n2. Press 2 to insert nodes.");
         printf("\n3. Press 3 to traverse the list.");
         printf("\n4. Press 4 to implement deletion process");
+        printf("\n4. Press 5 to implement Searching process");
         printf("\n PRESS 0 TO EXIT.");
         printf("\nUser give input =");
         scanf("%d",&choice1);
@@ -113,6 +184,7 @@ int main(){
                 printf("\n\t inserting nodes in Doubly Linked List\n");
                 printf("\n\t1. press 1 for insertion at begining");
                 printf("\n\t2. press 2 for insertion at the end of list");
+                printf("\n\t3. press 3 for insertion after a node");
                 printf("\n\t3. PRESS 0 TO GO BACK TO MENU");
                 printf("\n\t User give input =");
                 scanf("%d",&choice3);
@@ -134,6 +206,18 @@ int main(){
                         scanf("%d",&input);
                         ins_end(&head,&tail,input);
                         printf("\n\t Value inserted \n");
+                    break;
+
+                    case 3:
+                        trav1(head); // 1st display the list to user
+                        printf("\n\t Inserting after a node\n");
+                        printf("\n\t User specify node (input-value) =");
+                        scanf("%d",&input1);
+                        printf("\n\t User provide input =");
+                        scanf("%d",&input);
+                        ins_aft(&head,&tail,input1,input);
+                        printf("\n\t Value inserted \n");
+                        trav1(head);//show the list after insertion
                     break;
 
                     default:
